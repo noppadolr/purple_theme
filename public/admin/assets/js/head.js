@@ -15,7 +15,7 @@
         theme: "light",
 
         layout: {
-            mode: "default",
+            mode: "detached",
             width: "default",
         },
 
@@ -32,7 +32,7 @@
         sidenav: {
             size: "default",
             twocolumn: "light",
-            user: false,
+            user: true,
         },
     };
 
