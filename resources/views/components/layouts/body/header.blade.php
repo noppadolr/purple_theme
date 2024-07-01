@@ -47,7 +47,8 @@
             <!-- User Dropdown -->
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{ asset($adminData->photo) }}" title="{{ $adminData->name }}" alt="user-image" class="rounded-circle">
+                    <img src="{{ (!empty($adminData->photo))? url('upload/adminImages/'.$adminData->photo):url('upload/no_image.jpg') }}" title="{{ $adminData->name }}" alt="user-image" class="rounded-circle">
+                    {{-- <img src="{{ asset($adminData->photo) }}" title="{{ $adminData->name }}" alt="user-image" class="rounded-circle"> --}}
                     <span class="ms-1 d-none d-md-inline-block">
                         {{ $adminData->name }}
                         <i class="mdi mdi-chevron-down"></i>

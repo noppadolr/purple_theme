@@ -23,7 +23,8 @@
 
         <!-- User box -->
         <div class="user-box text-center">
-            <img src="{{ asset($adminData->photo) }}" alt="user-img" title="{{ $adminData->name }}" class="rounded-circle avatar-md">
+            <img  src="{{ (!empty($adminData->photo))? url('upload/adminImages/'.$adminData->photo):url('upload/no_image.jpg') }}"  alt="user-img" title="{{ $adminData->name }}" class="rounded-circle avatar-md ">
+            {{-- <img src="{{ asset('admin/assets/images/users/user-1.jpg') }}" alt="user-img" title="Mat Helme" class="rounded-circle avatar-md"> --}}
             <div class="dropdown">
                 <a href="javascript: void(0);" class="dropdown-toggle h5 mb-1 d-block" data-bs-toggle="dropdown">{{ $adminData->name }}</a>
                 <div class="dropdown-menu user-pro-dropdown">

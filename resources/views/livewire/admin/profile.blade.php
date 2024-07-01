@@ -169,21 +169,27 @@
 
 
                                     <div class="tab-pane active " id="editprofile" role="tabpanel">
-                                        <form action="#" >
+                                        <form action="#" wire:submit.prevent='Updated' >
                                             @csrf
                                             {{--start row--}}
                                             <div class="row">
                                                 <div class="col-lg-6 col-xl-6">
                                                     <div class="mb-3">
                                                         <label for="name" class="form-label">Name</label>
-                                                        <input type="text" id="name" name="name" value="{{ $adminData->name }}" class="form-control @error('name') is-invalid @enderror">
+                                                        <input type="text" id="name" wire:model='name' name="name"  class="form-control @error('name') is-invalid @enderror">
+                                                        @error('name')
+                                                            <span class="text-danger text--sm">{{ $message }}</span>
+                                                        @enderror
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6 col-xl-6">
                                                     <div class="mb-3">
                                                         <label for="username" class="form-label">Username</label>
-                                                        <input type="text" id="name" name="username" value="{{ $adminData->username }}" class="form-control @error('username') is-invalid @enderror">
+                                                        <input type="text" id="name" wire:model='username' name="username"  class="form-control @error('username') is-invalid @enderror">
+                                                        @error('username')
+                                                        <span class="text-danger text--sm">{{ $message }}</span>
+                                                    @enderror
                                                     </div>
                                                 </div>
 
@@ -194,14 +200,20 @@
                                                 <div class="col-lg-6 col-xl-6">
                                                     <div class="mb-3">
                                                         <label for="email" class="form-label">Email</label>
-                                                        <input type="text" id="email" name="email" value="{{ $adminData->email }}" class="form-control @error('email') is-invalid @enderror">
+                                                        <input type="text" id="email" name="email" wire:model='email' class="form-control @error('email') is-invalid @enderror">
+                                                        @error('email')
+                                                        <span class="text-danger text--sm">{{ $message }}</span>
+                                                    @enderror
                                                     </div>
                                                 </div>
 
                                                 <div class="col-lg-6 col-xl-6">
                                                     <div class="mb-3">
                                                         <label for="phone" class="form-label">Phone</label>
-                                                        <input type="text" id="phone" name="phone" value="{{ $adminData->phone }}" class="form-control @error('phone') is-invalid @enderror">
+                                                        <input type="text" id="phone" name="phone" wire:model='phone' class="form-control @error('phone') is-invalid @enderror">
+                                                        @error('phone')
+                                                        <span class="text-danger text--sm">{{ $message }}</span>
+                                                    @enderror
                                                     </div>
                                                 </div>
 
@@ -214,12 +226,12 @@
                                                     <label for="imageUpload"></label>
                                                 </div>
                                                 <div class="avatar-preview">
-                                                    <div id="imagePreview" style="background-image: url({{ $adminData->photo }});">
+                                                    <div wire:model='photo' id="imagePreview" style="background-image: url({{ (!empty($adminData->photo))? asset('upload/adminImages/'.$adminData->photo):asset('upload/no_image.jpg') }});">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <button class="btn btn-primary">Update</button>
+                                        <button class="btn btn-primary" type="submit">Update</button>
                                         </form>
 
 

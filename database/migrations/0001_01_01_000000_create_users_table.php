@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->string('photo')->default('/upload/no_image.jpg');
+            $table->string('email')->unique();            
+            // $table->string('photo')->default('/upload/no_image.jpg');
+            $table->string('photo')->nullable();
             $table->integer('phone')->nullable();
             $table->integer('status')->default(1)->comment('0=inactive 1=active');
             $table->timestamp('email_verified_at')->nullable();

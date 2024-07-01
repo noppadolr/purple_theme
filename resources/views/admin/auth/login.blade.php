@@ -22,7 +22,7 @@
 
     <!-- Icons css -->
     <link href="{{ asset('admin/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    @vite(['resources/js/app.js','resources/css/app.css'])
+    {{-- @vite(['resources/js/app.js','resources/css/app.css']) --}}
 </head>
 
 <body class="authentication-bg authentication-bg-pattern">
